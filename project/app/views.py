@@ -27,7 +27,7 @@ def city(req,city):
     else:
         print("no munuments")
 
-def city(req,a):
+def day(req,a):
     if a==1:
         return HttpResponse('Sunday')
     elif a==2:
@@ -44,6 +44,13 @@ def city(req,a):
         return HttpResponse('saturday')
     else:
         return HttpResponse('invalid')
+def bonus(request,a,b):
+    if b>5:
+        c=0.05*a
+        return HttpResponse(c)
+    else:
+        return HttpResponse('no change')
+
 
 def tax(req,a):
     if a>100000:
