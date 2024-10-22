@@ -26,3 +26,48 @@ def city(req,city):
         print("monuments : jal mahal")
     else:
         print("no munuments")
+
+def city(req,a):
+    if a==1:
+        return HttpResponse('Sunday')
+    elif a==2:
+        return HttpResponse('monday')
+    elif a==3:
+        return HttpResponse('Tuesday')
+    elif a==4:
+        return HttpResponse('wednesday')
+    elif a==5:
+        return HttpResponse('Thursday')
+    elif a==6:
+        return HttpResponse('Friday')
+    elif a==7:
+        return HttpResponse('saturday')
+    else:
+        return HttpResponse('invalid')
+
+def tax(req,a):
+    if a>100000:
+        b=a*15/100
+        total=a+b
+        return HttpResponse(total)
+    elif a>50000 and a<=100000:
+        b=a*10/100
+        total=a+b
+        return HttpResponse(total)
+    else:
+        b=a*5/100
+        total=a+b
+        return HttpResponse(total)
+    
+def bill(req,a):
+    if a<100:
+        return HttpResponse("Your unit price = 0")
+    else:
+        if a<200 and a>100:
+            up=a-100
+            ua=up*5
+            return HttpResponse(ua)
+        else:
+            ui=a-200
+            us=ui*10+500
+            return HttpResponse(us)
