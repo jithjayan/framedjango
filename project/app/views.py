@@ -78,3 +78,8 @@ def bill(req,a):
             ui=a-200
             us=ui*10+500
             return HttpResponse(us)
+
+def demo(req):
+    a="welcome"
+    b=[1,2,3,{'name':'awe','age':12}]
+    return render(req,'demo.html',{'data':a,'data2':b})
