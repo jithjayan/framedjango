@@ -10,5 +10,7 @@ urlpatterns=[
     path('bonus/<int:a>/<int:b>',views.bonus),
     path('tax/<int:a>',views.tax),
     path('bill/<int:a>',views.bill),
-    path('demo',views.demo)
+    path('demo',views.demo),
+    path('display',views.display),
+    path('user_reg',views.user_reg)
 ]
