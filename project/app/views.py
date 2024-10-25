@@ -101,4 +101,26 @@ def user_reg(req):
         print(req.method)
         return redirect(display)
 
+def edit_user(req,id):
+    user=''
+    for i in users:
+        if i['id']==id:
+            user=i
+    if req.method=='POST':
+        id=req.POST['id']
+        name=req.POST['name']
+        age=req.POST['age']
+        email=req.POST['email']
+        user['id']=id
+        user['name']=name
+        user['age']=age
+        user['email']=email
+        return redirect(display)
+    
+    return render(req,'edit_user.html',{'user':user})
 
+def delete_user(req,id):
+    for i in users:
+        if i['id']==id:
+            users.remove(i)
+    return redirect(display)
