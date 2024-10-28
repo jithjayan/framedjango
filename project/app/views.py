@@ -124,3 +124,6 @@ def delete_user(req,id):
         if i['id']==id:
             users.remove(i)
     return redirect(display)
+
+def index(req):
+    return render(req,'index.html')
