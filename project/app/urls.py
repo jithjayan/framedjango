@@ -17,4 +17,7 @@ urlpatterns=[
     path('delete_user/<id>',views.delete_user),
     path('',views.index),
     path('disp_std',views.display_std),
+    path('add_std',views.add_std),
+    path('edit_std/<id>',views.edit_std),
+    path('delete_std/<id>',views.delete_std),
 ]

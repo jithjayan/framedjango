@@ -132,3 +132,31 @@ def index(req):
 def display_std(req):
     data=student.objects.all()
     return render(req,'display_std.html',{'std':data})
+
+def add_std(req):
+    if req.method=='POST':
+        roll=req.POST['roll_no']
+        name=req.POST['name']
+        age=req.POST['age']
+        email1=req.POST['email']
+        data=student.objects.create(roll_no=roll,name=name,age=age,email=email1)
+        data.save()
+        return redirect(display_std)
+    else:
+        return render(req,'add_std.html')
+
+def edit_std(req,id):
+    data=student.objects.get(pk=id)
+    if req.method=='POST':
+        roll=req.POST['roll_no']
+        name=req.POST['name']
+        age=req.POST['age']
+        email1=req.POST['email']
+        student.objects.filter(pk=id).update(roll_no=roll,name=name,age=age,email=email1)
+        return redirect(display_std)
+    return render(req,'edit_std.html',{'data':data})
+
+def delete_std(req,id):
+    data=student.objects.get(pk=id)
+    data.delete()
+    return redirect(display_std)
