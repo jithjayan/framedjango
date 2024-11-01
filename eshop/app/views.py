@@ -19,3 +19,9 @@ def shop_logout(req):
     
 def shop_home(req):
     return render(req,'shop/home.html')
+
+def add_product(req):
+     if req.method=='POST':
+          pass
+     else:
+          return render(req,'shop/add_product.html')
