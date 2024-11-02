@@ -22,23 +22,23 @@
         <div class="form-container">
         <div>
         <h4>ADD PRODUCTS</h4><br>
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
           {% csrf_token %}
             <div class="mb-2 mt-2">
                 <label for="prod_id" class="form-label">Product ID:</label>
-                <input type="text" class="form-control" placeholder="Enter Product Id" name="prd_id">
+                <input type="text" class="form-control" placeholder="Enter Product Id" name="pro_id">
               </div>
               <div class="mb-2">
                 <label for="prd_name" class="form-label">Product Name:</label>
-                <input type="text" class="form-control" placeholder="Enter Product name" name="prd_name">
+                <input type="text" class="form-control" placeholder="Enter Product name" name="name">
               </div>
               <div class="mb-2">
                 <label for="price" class="form-label">Price:</label>
-                <input type="number" class="form-control" placeholder="Enter Product price" name="prd_price">
+                <input type="number" class="form-control" placeholder="Enter Product price" name="price">
               </div>
               <div class="mb-2">
                 <label for="ofrprice" class="form-label">Offer Price:</label>
-                <input type="number" class="form-control" placeholder="Enter Offer price" name="ofr_price">
+                <input type="number" class="form-control" placeholder="Enter Offer price" name="offer_price">
               </div>
               <div class="mb-2">
                 <label for="img" class="form-label">Image:</label>
@@ -46,7 +46,7 @@
               </div>
               <div class="mb-2">
                 <label for="dis" class="form-label">Discription:</label>
-                <input type="text" class="form-control" placeholder="Enter Product details" name="prd_dis">
+                <input type="text" class="form-control" placeholder="Enter Product details" name="disp">
               </div>
               <div class="form-check mb-2">
               </div>
