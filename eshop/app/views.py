@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate,login,logout
 from .models import *
+import os
 # Create your views here.
 def shop_login(req):
     if 'shop' in req.session:
@@ -23,7 +24,8 @@ def shop_logout(req):
     
 def shop_home(req):
     if 'shop' in req.session:
-        return render(req,'shop/home.html')
+        data=product.objects.all()[::-1]
+        return render(req,'shop/home.html',{'products':data})
     else:
          return redirect(shop_login)
 
@@ -46,3 +48,32 @@ def add_product(req):
      else:
          return redirect(shop_login)
 
+def edit_product(req,pid):
+    if 'shop' in req.session:
+          
+        if req.method=='POST':
+            id=req.POST['pro_id']
+            name=req.POST['name']
+            price=req.POST['price']
+            offer_price=req.POST['offer_price']
+            img=req.FILES.get['img']
+            disp=req.POST['disp']
+            if img:
+                product.objects.filter(pk=id).update(pro_id=id,name=name,price=price,offer_price=offer_price,img=img,disp=disp)
+            else:
+                 product.objects.filter(pk=id).update(pro_id=id,name=name,price=price,offer_price=offer_price,disp=disp)
+            return redirect(shop_home)
+            
+        else:
+            data=product.objects.get(pk=pid)
+            return render(req,'shop/add_product.html',{'product':data})
+    else:
+        return redirect(shop_login)
+def delete_product(req,pid):
+    data=product.objects.get(pk=pid)
+    url=data.img.url
+    og_path=url.split('/')[-1]
+    os.remove('media/'+og_path)
+    data.delete()
+    print(og_path)
+    return redirect(shop_home)

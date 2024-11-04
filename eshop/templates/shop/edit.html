@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="form-container">
+        <div>
+        <h4>EDIT PRODUCTS</h4><br>
+        <form action="" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+            <div class="mb-2 mt-2">
+                <label for="prod_id" class="form-label">Product ID:</label>
+                <input type="text" class="form-control" placeholder=" Product Id" name="pro_id" value="{{product.pro_id}}">
+              </div>
+              <div class="mb-2">
+                <label for="prd_name" class="form-label">Product Name:</label>
+                <input type="text" class="form-control" placeholder=" Product name" name="name" value="{{product.name}}">
+              </div>
+              <div class="mb-2">
+                <label for="price" class="form-label">Price:</label>
+                <input type="number" class="form-control" placeholder=" Product price" name="price" value="{{product.price}}">
+              </div>
+              <div class="mb-2">
+                <label for="ofrprice" class="form-label">Offer Price:</label>
+                <input type="number" class="form-control" placeholder=" Offer price" name="offer_price" value="{{product.offer_price}}">
+              </div>
+              <div class="mb-2">
+                <label for="img" class="form-label">Image:</label>
+                <img src="{{product.img.url}}" alt="" >
+              </div>
+              <div class="mb-2">
+                <label for="dis" class="form-label">Discription:</label>
+                <input type="text" class="form-control" placeholder=" Product details" name="disp" value="{{product.disp}}">
+              </div>
+              <div class="form-check mb-2">
+              </div>
+              <div>
+                <a type="submit" href="shp_home" class="btn btn-primary">Back</a>
+                <button type="submit" class="btn btn-primary" value="update">Submit</button>
+              </div>
+        </form>
+    </div>
+    </div>
+</body>
+</html>
