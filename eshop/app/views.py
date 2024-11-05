@@ -63,7 +63,7 @@ def edit_product(req,pid):
             name=req.POST['name']
             price=req.POST['price']
             offer_price=req.POST['offer_price']
-            img=req.FILES.get['img']
+            img=req.FILES.get('img')
             disp=req.POST['disp']
             if img:
                 product.objects.filter(pk=id).update(pro_id=id,name=name,price=price,offer_price=offer_price,img=img,disp=disp)
@@ -73,7 +73,7 @@ def edit_product(req,pid):
             
         else:
             data=product.objects.get(pk=pid)
-            return render(req,'shop/add_product.html',{'product':data})
+            return render(req,'shop/edit.html',{'product':data})
     else:
         return redirect(shop_login)
 def delete_product(req,pid):
@@ -98,6 +98,6 @@ def register(req):
             messages.warning(req,"Email already exist")
             return redirect(register)
     else:
-        return render(req,'user/register.html') 
+        return render(req,'user/register.html')
 
 

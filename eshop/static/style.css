@@ -1,0 +1,12 @@
+.bl{
+    background-color: aqua;
+}
+#lf{
+    
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+.rh{
+    text-align: center;
+}
