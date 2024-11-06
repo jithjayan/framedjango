@@ -66,9 +66,9 @@ def edit_product(req,pid):
             img=req.FILES.get('img')
             disp=req.POST['disp']
             if img:
-                product.objects.filter(pk=id).update(pro_id=id,name=name,price=price,offer_price=offer_price,img=img,disp=disp)
+                product.objects.filter(pk=pid).update(pro_id=id,name=name,price=price,offer_price=offer_price,img=img,disp=disp)
             else:
-                 product.objects.filter(pk=id).update(pro_id=id,name=name,price=price,offer_price=offer_price,disp=disp)
+                 product.objects.filter(pk=pid).update(pro_id=id,name=name,price=price,offer_price=offer_price,disp=disp)
             return redirect(shop_home)
             
         else:
@@ -76,6 +76,8 @@ def edit_product(req,pid):
             return render(req,'shop/edit.html',{'product':data})
     else:
         return redirect(shop_login)
+    
+
 def delete_product(req,pid):
     data=product.objects.get(pk=pid)
     url=data.img.url
