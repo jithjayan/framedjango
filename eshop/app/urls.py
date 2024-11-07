@@ -14,7 +14,8 @@ urlpatterns=[
     path('delete_product/<pid>',views.delete_product),
 
 #---------------user--------------
-    path('register',views.register)
-
+    path('register',views.register),
+    path('user_home',views.user_home),
+    path('view_pro',views.view_pro),
 
 ]
