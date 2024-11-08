@@ -98,7 +98,7 @@ def register(req):
     if req.method=='POST':
         name=req.POST['name']
         email=req.POST['email']
-        password=req.POST['password']
+        password=req.POST['paswd']
         try:
             data=User.objects.create_user(first_name=name,email=email,password=password,username=email)
             data.save()
@@ -120,3 +120,14 @@ def user_home(req):
 def view_pro(req,pid):
     data=product.objects.get(pk=pid)
     return render(req,'user/view_pro.html',{'data':data})
+
+def add_to_cart(req,pid):
+    prdct=product.objects.get(pk=pid)
+    user=User.objects.get(username=req.session['user'])
+    data=cart.objects.create(user=user,product=prdct)
+    data.save()
+    return redirect(view_cart)
+
+def view_cart(req):
+    return render(req,'user/cart.html')
+
