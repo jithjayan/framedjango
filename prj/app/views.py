@@ -15,9 +15,9 @@ def shop_login(req):
                 login(req,data)
                 req.session['shop']=uname
                 return redirect(shop_home)
-            else:
-                messages.warning(req,"Invalid uname or password")
-                return redirect(shop_login)
+            # else:
+            #     messages.warning(req,"Invalid uname or password")
+            #     return redirect(shop_login)
         else:
             return render(req,'login.html')   
 
@@ -27,11 +27,11 @@ def shop_logout(req):
         return redirect(shop_login)
 
 def shop_home(req):
-    if 'shop' in req.session:
+    # if 'shop' in req.session:
         data=plants.objects.all()[::-1]
         return render(req,'shop/shop_home.html',{'plants':data})
-    else:
-         return redirect(shop_login)
+    # else:
+    #      return redirect(shop_login)
 
 def add_plants(req):
     #  if 'shop' in req.session:

@@ -7,5 +7,25 @@
 </head>
 <body>
     <h1>cart</h1>
+
+    <div class="container">
+        {% for i in cart_dtls %}
+        <div class="row">
+
+            <div class="col-lg-5">
+                <img src="{{i.product.img.url}}" alt="" style="width: 300px; height: 400px;object-fit: contain;">
+            </div>
+            <div class="col-lg-7">
+                <h2>{{i.product.name}}</h2>
+                <s><h6>{{i.product.price}}</h6></s>
+                <h3>{{i.product.offer_price}}</h3>
+                <p>{{i.product.disp}}</p>
+                <a class="btn" href="../delete_cart/{{i.pk}}"> Remove</a>
+                <a class="btn" href="../user_buy/{{i.pk}}">Buy</a>
+            </div>
+        </div>
+
+        {% endfor %}
+</div>
 </body>
 </html>
