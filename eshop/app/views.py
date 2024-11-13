@@ -94,6 +94,14 @@ def delete_product(req,pid):
     print(og_path)
     return redirect(shop_home)
 
+def bookings(req):
+    buy=Buy.objects.all()[::-1]
+    return render(req,'shop/bookings.html',{'buy':buy})
+
+
+
+
+# -----------------USER-------------------
 def register(req):
     if req.method=='POST':
         name=req.POST['name']
@@ -156,3 +164,8 @@ def user_buy1(req,pid):
     buy.save()
     return redirect(user_home)
     
+
+def user_bookings(req):
+    user=User.objects.get(username=req.session['user'])
+    buy=Buy.objects.filter(user=user)[::-1]
+    return render(req,'user/bookings.html',{'buy':buy})
