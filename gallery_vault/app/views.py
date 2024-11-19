@@ -40,7 +40,7 @@ def register(req):
         try:
             data=User.objects.create_user(first_name=name,email=email,password=password,username=email)
             data.save()
-            return redirect(login)
+            return redirect(ad_login)
         except:
             messages.warning(req,"Email already exist")
             return redirect(register)
@@ -49,8 +49,10 @@ def register(req):
     
 def user_home(req):
     if 'user' in req.session:
-        data=Galleryvault.objects.all()
-        return render(req,'user/home.html',{'data':data})
+        # data=Galleryvault.objects.all()
+        user=User.objects.get(username=req.session['user'])
+        files=Galleryvault.objects.filter(user=user)
+        return render(req,'user/home.html',{'Files':files})
     else:
         return redirect(login)
     
