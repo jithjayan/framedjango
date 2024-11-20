@@ -7,6 +7,7 @@ class Movie(models.Model):
     frgrnd_img=models.FileField()
     bckgrnd_img=models.FileField()
     lang=models.TextField()
+    ot_lang=models.TextField()
     durtn=models.TextField()
     diamtn=models.TextField()
     type=models.TextField()
