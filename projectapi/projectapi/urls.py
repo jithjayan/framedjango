@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('sample',views.sample),
     path('user_def',views.user_def_serializer),
+    path('model_ser',views.fun1),
 ]
