@@ -131,7 +131,7 @@ class fun8(APIView):
         except Student.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
         
-class genericapiview(generics.GenericAPIView,mixins.ListModelMixins,mixins.CreateModelMixin):
+class genericapiview(generics.GenericAPIView,mixins.ListModelMixin,mixins.CreateModelMixin):
     serializer_class=model_serializer
     queryset=Student.objects.all()
     def get(self,req):
@@ -140,7 +140,7 @@ class genericapiview(generics.GenericAPIView,mixins.ListModelMixins,mixins.Creat
         return self.create(req)
     
 
-class update(generics.GenericAPIView,mixins.UpdateModelMixin,mixins.DestroyModelMixin):
+class update(generics.GenericAPIView,mixins.RetrieveModelMixin,mixins.UpdateModelMixin,mixins.DestroyModelMixin):
     serializer_class=model_serializer
     queryset=Student.objects.all()
     lookup_field='id'
