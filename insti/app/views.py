@@ -15,21 +15,18 @@ def course(req):
 def about(req):
     return render(req,'about.html')
 def contact(req):
-    return render(req,'contact.html')
-
-def cnct(req):
     if req.method=='POST':
         name=req.POST['name']
         email=req.POST['email'] 
         phnum=req.POST['phnum']
         msg=req.POST['msg']       
         try:
-            data=User.objects.create_user(first_name=name,email=email,phnum=phnum,msg=msg)
+            data=enqry.objects.create(name=name,email=email,phnum=phnum,msg=msg)
             data.save()
             return redirect(contact)
         except:
             messages.warning(req,"Email already exist")
-            return redirect(cnct)
+            return redirect(contact)
     else:
         return render(req,'contact.html')
 
