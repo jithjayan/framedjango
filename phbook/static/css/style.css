@@ -1,0 +1,140 @@
+body {
+    /* background-color: #f4f4f4; */
+    background-color: #04AA6D;
+
+}
+.logo p{
+    margin-top: 2px;
+    margin-left: 45%;
+    font-size: 40px;
+    font-family: cursive;
+}
+.ml{
+    height: 120px;
+    width: 120px;
+    margin-top: 20px;
+    margin-left: 46%;
+   
+}
+.box{
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    margin: 0;
+}
+.login-fr {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 350px;
+}
+
+.login-fr h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2e7d32; /* Green color for plants */
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+.form-input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+.login-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background-color: #45a049;
+}
+
+
+.register{
+    text-align: center;
+    margin-top: 1opx;
+    font-size: 17px;
+
+}
+.register a{
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.register a:hover{
+    text-decoration:underline;
+
+}
+
+.box2{
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    margin: 0;
+}
+.form-input2 {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+.form-input2:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+
+/* ---------------user home ------------ */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover:not(.active) {
+    background-color: #ddd;
+  }
+  
+  li a.active {
+    color: white;
+    background-color: #04AA6D;
+  }
