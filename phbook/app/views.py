@@ -18,7 +18,7 @@ def m_login(req):
         if data:
             if data.is_superuser:
                 login(req,data)
-                req.session['pbook']=uname   #create session
+                req.session['pbook']=uname   
                 # return redirect(home)
             else:
                 login(req,data)
@@ -32,7 +32,7 @@ def m_login(req):
         return render(req,'login.html')
 
 def usr_logout(req):
-    req.session.flush()          #delete session
+    req.session.flush()          
     logout(req)
     return redirect(m_login)
 
@@ -52,12 +52,7 @@ def register(req):
     else:
         return render(req,'register.html')
 
-# def home(req):
-#     if 'user' in req.session:
-#         data=Phone.objects.all().order_by('name')
-#         return render(req,'home.html',{'data':data})
-#     else:
-#         return redirect(usr_login)
+
 
 def home(req):
     if 'user' in req.session:
